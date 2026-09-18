@@ -54,3 +54,9 @@ Contributions, comments and discussions are welcome.
 OAKE is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
 SPDX identifier: `CC-BY-4.0`
+
+## Acknowledgements
+
+OAKE has benefited from discussions, guidance and contributions from members of the astronomy, Semantic Web and knowledge engineering communities.
+
+See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for details.
