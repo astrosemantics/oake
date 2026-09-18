@@ -50,22 +50,46 @@ Completion marks reflect the confirmed project milestones. Unchecked items inclu
 
 ---
 
+## Value and use cases
+
+OAKE should be driven not only by what can be modelled, but by what semantic interoperability makes possible for astronomy communities.
+
+Its development should demonstrate concrete benefits for amateur astronomy, professional astronomy, citizen science and the organisations and infrastructures connecting them.
+
+Particular attention will be given to use cases that cross traditional community or domain boundaries and cannot be addressed effectively by isolated datasets or models.
+
+- [ ] Identify concrete information needs from amateur astronomy
+- [ ] Identify concrete information needs from professional astronomy
+- [ ] Identify shared needs involving citizen science, education, outreach and dark-sky initiatives
+- [ ] Identify cross-community scenarios connecting amateur and professional astronomy
+- [ ] Translate representative information needs into competency questions
+- [ ] Identify which questions can already be answered using existing semantic resources
+- [ ] Identify which questions require semantic connections currently missing between resources
+- [ ] Demonstrate the added value of OAKE through representative knowledge graphs and queries
+- [ ] Use demonstrated benefits and unresolved questions to prioritise further modelling work
+
+---
+
 ## Conceptual model
 
 - [ ] Define the scope
-- [ ] Identify stakeholders and knowledge domains
+- [ ] Identify stakeholders, astronomy communities and knowledge domains
+- [ ] Examine how major professional astronomy domains are structured and represented in existing semantic resources
 - [ ] Define the core concepts and their relationships
-- [ ] Define shared and use-case-specific competency questions
+- [ ] Consolidate competency questions derived from demonstrated community needs
+- [ ] Identify competency questions that cross amateur, professional and citizen-science contexts
 - [ ] Distinguish organisations, projects, networks, observing facilities, geographical sites, platforms, instruments and deployments
 - [ ] Distinguish individual instruments from instrument types and models
 - [ ] Address both observation networks and territorial astronomy ecosystems
 - [ ] Produce the conceptual diagram
-- [ ] Refine the model through representative examples and community feedback
+- [ ] Refine the model through representative examples, knowledge graphs and community feedback
 
 ---
 
 ## Semantic interoperability
 
+- [ ] Review existing astronomy knowledge-graph and semantic-integration initiatives, starting with [Helio-KNOW](https://github.com/rmcgranaghan/Helio-KNOW/)
+- [ ] Investigate comparable initiatives across heliophysics, planetary science and other astronomy domains
 - [ ] Review existing ontologies and controlled vocabularies
 - [ ] Prioritise reuse before introducing OAKE-specific terms
 - [ ] Evaluate reuse and alignments involving SOSA/SSN, SAREF and SAREF4ENVI
@@ -95,9 +119,11 @@ The resources listed here are candidates for evaluation, not commitments to impo
 
 ## Knowledge graph development
 
-The intended application sequence is **TESS / STARS4ALL → Allsky → FRIPON → astronomy in Brittany**. This sequence is indicative and will depend on discussions with the relevant communities, data availability and the maturity of OAKE.
+OAKE will be tested through complementary real-world knowledge graph use cases. These applications are not intended as a fixed sequence or progression in complexity: each explores different parts and relationships of the astronomical knowledge ecosystem.
 
-These are proposed applications, not established partnerships or commitments by the networks concerned. They are intended to describe the networks and ecosystems themselves; ingestion of observation streams or image archives is not assumed as an initial requirement.
+Initial use cases include TESS / STARS4ALL, Allsky, FRIPON and the territorial astronomy ecosystem in Brittany. Additional knowledge graphs should progressively be contributed by other communities and projects.
+
+These are proposed applications, not established partnerships or commitments by the networks concerned. Their purpose is both to demonstrate useful applications of OAKE and to expose requirements that can improve the shared semantic model. Ingestion of observation streams or image archives is not assumed as an initial requirement.
 
 ### 1. TESS / STARS4ALL — international photometer network
 
@@ -149,7 +175,10 @@ These are proposed applications, not established partnerships or commitments by 
 - [ ] Define validation rules and reproducible metadata transformation workflows
 - [ ] Maintain each graph's ownership and update responsibilities independently
 - [ ] Support links between graphs without requiring their consolidation into one dataset
-- [ ] Provide example queries demonstrating cross-network and territorial reuse
+- [ ] Provide example queries demonstrating concrete benefits for different astronomy communities
+- [ ] Demonstrate queries spanning multiple independently maintained knowledge graphs
+- [ ] Demonstrate cross-community queries connecting amateur and professional astronomy
+- [ ] Evaluate which questions become answerable only when previously separate ecosystem components are semantically connected
 
 ---
 
@@ -166,20 +195,19 @@ These are proposed applications, not established partnerships or commitments by 
 
 ---
 
-## Potential future ontology modules
+## Potential future thematic extensions
 
-💡 Candidate areas, to be assessed against demonstrated requirements and existing semantic resources:
+💡 Candidate areas to be explored through demonstrated requirements and existing semantic resources:
 
-- Amateur astronomy
-- Professional astronomy
-- Citizen science
-- Dark sky
-- Astronomical education
+- Citizen science and participatory astronomy
+- Dark-sky protection and light pollution
+- Astronomical education and outreach
 - Space missions
 - Planetariums
 - Astronomical heritage
+- Other specialised requirements identified through community knowledge graphs
 
-These areas do not automatically require separate modules. Extensions will be introduced only when their scope and added value are clear; a new knowledge graph does not necessarily require a new ontology module.
+These areas do not automatically require separate ontology modules. Amateur and professional astronomy are considered interconnected parts of the same astronomical knowledge ecosystem rather than separate modelling silos. Extensions will be introduced only when their scope and added value are demonstrated and cannot be adequately addressed through existing semantic resources.
 
 ---
 
@@ -187,4 +215,6 @@ These areas do not automatically require separate modules. Extensions will be in
 
 💡 Develop OAKE as a modular semantic ecosystem that enables interoperability across worldwide astronomy by connecting people, organisations, infrastructures, instruments, observations, services and knowledge resources through shared semantic standards.
 
-This vision combines interoperable, independently maintained knowledge graphs at international, network and territorial scales, supported by a shared and progressively refined ontology.
+OAKE should enable questions and applications that are difficult to address when these resources remain semantically isolated, including use cases spanning amateur astronomy, professional astronomy, citizen science and other parts of the astronomical ecosystem.
+
+This vision combines interoperable, independently maintained knowledge graphs at international, network and territorial scales, supported by a shared and progressively refined semantic model.
