@@ -1,0 +1,19 @@
+PREFIX ex: <https://example.org/oake/allsky/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?deployment ?platform ?site ?start ?end
+WHERE {
+  VALUES ?date { "2026-06-01T12:00:00Z"^^xsd:dateTimeStamp }
+  ?deployment a ssn:Deployment ;
+      ssn:deployedSystem ex:camera ;
+      ssn:deployedOnPlatform ?platform ;
+      prov:atLocation ?site ;
+      time:hasTime ?period .
+  ?period time:hasBeginning/time:inXSDDateTimeStamp ?start ;
+          time:hasEnd/time:inXSDDateTimeStamp ?end .
+  FILTER(xsd:dateTime(STR(?date)) >= xsd:dateTime(STR(?start)) && xsd:dateTime(STR(?date)) < xsd:dateTime(STR(?end)))
+}
+ORDER BY ?start

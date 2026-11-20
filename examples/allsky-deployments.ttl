@@ -1,0 +1,35 @@
+@prefix ex: <https://example.org/oake/allsky/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Fictional deployment history; NOT the user's actual installation history.
+# Reuse ex:camera from the LOT-001 fixture to preserve physical identity.
+ex:camera a sosa:Sensor .
+ex:station-a a sosa:Platform ; rdfs:label "Example station A"@en .
+ex:station-b a sosa:Platform ; rdfs:label "Example station B"@en .
+ex:site-a a geo:Feature ; rdfs:label "Example site A"@en .
+ex:site-b a geo:Feature ; rdfs:label "Example site B"@en .
+
+# Station-to-site associations are qualified by the deployment record below.
+# A direct timeless geo:hasGeometry assertion on a mobile station is avoided.
+ex:deployment-a a ssn:Deployment ;
+    ssn:deployedSystem ex:camera ;
+    ssn:deployedOnPlatform ex:station-a ;
+    time:hasTime ex:deployment-period-a ;
+    <http://www.w3.org/ns/prov#atLocation> ex:site-a .
+ex:deployment-period-a a time:Interval ;
+    time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2025-01-01T00:00:00Z"^^xsd:dateTimeStamp ] ;
+    time:hasEnd [ a time:Instant ; time:inXSDDateTimeStamp "2026-01-01T00:00:00Z"^^xsd:dateTimeStamp ] .
+
+ex:deployment-b a ssn:Deployment ;
+    ssn:deployedSystem ex:camera ;
+    ssn:deployedOnPlatform ex:station-b ;
+    time:hasTime ex:deployment-period-b ;
+    <http://www.w3.org/ns/prov#atLocation> ex:site-b .
+ex:deployment-period-b a time:Interval ;
+    time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-01-01T00:00:00Z"^^xsd:dateTimeStamp ] ;
+    time:hasEnd [ a time:Instant ; time:inXSDDateTimeStamp "2027-01-01T00:00:00Z"^^xsd:dateTimeStamp ] .
