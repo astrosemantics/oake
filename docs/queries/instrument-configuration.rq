@@ -1,0 +1,21 @@
+PREFIX ex: <https://example.org/oake/allsky/>
+PREFIX saref: <https://saref.etsi.org/core/>
+PREFIX schema: <https://schema.org/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Replace this date to inspect another point in time.
+SELECT ?configuration ?camera ?cameraModelName ?lens ?lensModelName
+WHERE {
+  VALUES ?date { "2026-06-01T12:00:00Z"^^xsd:dateTimeStamp }
+  ?configuration saref:consistsOf ex:camera, ?lens ;
+                 time:hasTime ?interval .
+  BIND(ex:camera AS ?camera)
+  ?interval time:hasBeginning/time:inXSDDateTimeStamp ?start ;
+            time:hasEnd/time:inXSDDateTimeStamp ?end .
+  FILTER(xsd:dateTime(STR(?date)) >= xsd:dateTime(STR(?start)) && xsd:dateTime(STR(?date)) < xsd:dateTime(STR(?end)))
+  ?camera schema:model/schema:name ?cameraModelName .
+  ?lens schema:model/schema:name ?lensModelName .
+  FILTER(?lens != ?camera)
+}
+ORDER BY ?configuration ?lens
