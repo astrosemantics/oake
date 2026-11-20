@@ -19,6 +19,7 @@ This matrix maps **proposed** v0.1.0 requirements to the existing stable compete
 | NFR-05 | CQ tests | SHACL, SPARQL, OWL | Small KG fixture | Positive/negative tests and CI | To implement |
 | NFR-06 | FAIR publication | OWL metadata, persistent URI, citation, licence | v0.1.0 release | Metadata and link checks | To implement |
 | NFR-07 | MP6, MP10 | Distinct ontology/vocabularies/KG folders | Repository architecture | Structural review | Partially in place |
+| NFR-08 | MP11; multilingual policy | Language-tagged `rdfs:label`/`rdfs:comment` for OAKE OWL terms; SKOS annotations for concepts; stable language-independent IRIs | Core and modules | Check required `en`/`fr`/`es` labels and definitions; report coverage for `ar`, `zh-Hans`, `ru`, `de`, `it`, `pt`, `ja`, `hi`; validate tags and IRI resolution | To implement |
 
 ## Next decisions
 
