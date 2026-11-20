@@ -187,3 +187,30 @@ Examples:
 - "This proposal follows MP1 and MP5."
 - "Introducing this class would conflict with MP2."
 - "The proposed property should be reconsidered according to MP4."
+
+---
+
+# MP11 — Stable IRIs and multilingual annotations
+
+## Statement
+
+Use stable, language-independent IRIs for semantic resources, and provide multilingual human-readable annotations.
+
+## Rationale
+
+An IRI identifies one concept regardless of the language used to display it. Do not create translated IRIs for the same concept. Prefer stable ASCII local names for OAKE-minted terms; use RDF language-tagged literals (BCP 47) for labels and definitions.
+
+## Initial language policy (v0.1.0)
+
+- **Required** for every OAKE-defined class and property: English (`en`), French (`fr`) and Spanish (`es`) labels and definitions.
+- **Targeted, non-blocking** labels: Arabic (`ar`), Simplified Chinese (`zh-Hans`), Russian (`ru`), German (`de`), Italian (`it`), Portuguese (`pt`), Japanese (`ja`) and Hindi (`hi`).
+- Additional definitions in these eight languages are encouraged but not required for v0.1.0.
+- Prefer `rdfs:label` for labels and `rdfs:comment` for definitions/descriptions of OWL terms; use `skos:prefLabel` and `skos:definition` as appropriate for SKOS concepts.
+- Use Unicode/UTF-8 source files and validate BCP 47 language tags. Translations of external terms must be clearly attributed and must not be presented as official translations unless verified.
+- Measure coverage separately for labels and definitions, by language and artefact. Do not silently generate unreviewed translations.
+
+## Identifier policy
+
+The proposed canonical namespace is `https://w3id.org/astrosemantics/oake#`, subject to registration and resolution testing. The source repository is `https://github.com/astrosemantics/oake`. Version IRIs and redirect rules must be agreed before publication; this policy does not claim that w3id redirects are already active.
+
+This principle complements MP1 (reuse), MP6 (separation of layers) and MP8 (stability).

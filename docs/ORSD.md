@@ -42,6 +42,13 @@ The existing CQ1–CQ39 remain authoritative in `docs/competency-questions.md`. 
 | NFR-05 | Validation and reproducibility. | RDF syntax checks, reasoner checks where applicable, SHACL reports and CQ SPARQL expected-result tests. |
 | NFR-06 | FAIR publication readiness. | Stable namespace policy, version metadata, human-readable documentation, licence, citation and resolvable publication plan. |
 | NFR-07 | Separation of layers (MP6, MP10). | Ontology, controlled vocabularies and real-world knowledge graph instances stored separately. |
+| NFR-08 | Multilingual documentation and language-independent IRIs (MP11). | For each OAKE-defined class and property, labels and definitions in `en`, `fr`, `es`; coverage report for eight additional target languages; stable namespace policy and IRI resolution checks. |
+
+### Multilingual and identifier policy for v0.1.0
+
+OAKE targets eleven languages: `en`, `fr`, `es`, `ar`, `zh-Hans`, `ru`, `de`, `it`, `pt`, `ja`, `hi`. English, French and Spanish labels and definitions are release requirements for OAKE-defined classes and properties. Labels in the remaining eight languages are targets, not release blockers; definitions in those languages may be added incrementally. Coverage must be reported explicitly. These choices combine the six official UN languages (Chinese represented here by Simplified Chinese) and additional languages relevant to international astronomy communities; deployment maps alone do not establish users' languages.
+
+Use one stable IRI per concept, independent of language. The proposed namespace is `https://w3id.org/astrosemantics/oake#` (pending registration and resolution verification). Language-tagged RDF literals, not translated IRIs, carry multilingual labels and definitions. Preserve source attribution and review status for translations of external vocabularies.
 
 ## 5. Candidate external resources — evaluation, not automatic adoption
 
@@ -65,7 +72,7 @@ For each selected CQ: prepare one positive and one negative test case; document 
 
 ## 7. Open decisions
 
-- Confirm the canonical namespace/URI policy and whether the current draft Turtle terms should be retained.
+- Register and test the proposed w3id namespace, settle version IRIs, and review whether the current draft Turtle terms should be retained.
 - Determine which operational-status vocabulary and responsibility model can be reused.
 - Verify actual network and instrument identifiers, source licences and access conditions.
 - Agree which phenomenon types are necessary for the first demonstrator and verify reference vocabulary mappings.
