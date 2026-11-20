@@ -1,0 +1,19 @@
+# CQ31 / LOT-003: documented network affiliation for a sensor at a given instant.
+# Example fixture uses closed start and open end intervals.
+PREFIX ex: <https://example.org/oake/network-test/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?instrument ?network ?participation ?start ?end
+WHERE {
+  VALUES (?instrument ?when) { (ex:camera-c1 "2025-06-01T00:00:00Z"^^xsd:dateTime) }
+  ?instrument a sosa:Sensor .
+  ?network a prov:Entity .
+  ?participation a prov:Activity ;
+                 prov:used ?instrument, ?network ;
+                 prov:startedAtTime ?start ;
+                 prov:endedAtTime ?end .
+  FILTER (?when >= ?start && ?when < ?end)
+}
+ORDER BY ?network

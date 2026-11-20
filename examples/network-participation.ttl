@@ -1,0 +1,33 @@
+@prefix ex: <https://example.org/oake/network-test/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Fictional entities and dates — NOT real TESS/FRIPON memberships.
+ex:network-a a prov:Entity ; rdfs:label "Illustrative observing network A"@en .
+ex:network-b a prov:Entity ; rdfs:label "Illustrative observing network B"@en .
+ex:camera-c1 a sosa:Sensor ; rdfs:label "Illustrative camera C1"@en .
+ex:operator-a a org:Organization, prov:Agent ; rdfs:label "Illustrative operator A"@en .
+ex:operator-role a prov:Role, skos:Concept ; skos:prefLabel "Network contributor"@en .
+ex:source-a a prov:Entity ; rdfs:label "Illustrative participation record"@en .
+
+# Participation is expressed as a time-bounded PROV activity (candidate pattern).
+ex:participation-a a prov:Activity ;
+    prov:used ex:network-a, ex:camera-c1 ;
+    prov:startedAtTime "2025-01-01T00:00:00Z"^^xsd:dateTime ;
+    prov:endedAtTime "2026-01-01T00:00:00Z"^^xsd:dateTime ;
+    prov:qualifiedAssociation [
+        a prov:Association ;
+        prov:agent ex:operator-a ;
+        prov:hadRole ex:operator-role
+    ] ;
+    prov:wasDerivedFrom ex:source-a .
+
+# A different, later participation of the SAME physical instrument.
+ex:participation-b a prov:Activity ;
+    prov:used ex:network-b, ex:camera-c1 ;
+    prov:startedAtTime "2026-03-01T00:00:00Z"^^xsd:dateTime ;
+    prov:endedAtTime "2027-01-01T00:00:00Z"^^xsd:dateTime .
